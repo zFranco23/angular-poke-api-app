@@ -1,0 +1,13 @@
+<app-container>
+  <main class="max-w-4xl mx-auto py-10 px-4">
+    @if (!pokemon()) {
+    <div class="flex justify-center items-center h-screen">
+      <div
+        class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-700"
+      ></div>
+    </div>
+    } @else {
+    <pokemon-detail [pokemon]="pokemon()!"></pokemon-detail>
+    }
+  </main>
+</app-container>

@@ -1,19 +1,25 @@
 <div
-  class="max-w-xs bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-gray-200"
+  class="relative max-w-xs bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-gray-200"
 >
-  <img
-    class="w-full h-48 object-contain bg-gray-100 p-4"
-    [src]="pokemon().imgUrl"
-    [alt]="pokemon().name"
-  />
-  <div class="p-4 text-center">
-    <h2 class="text-xl font-bold text-gray-800">{{ pokemon().name }}</h2>
+  <button
+    (click)="toggleFavorite($event)"
+    [ngClass]="{
+      'bg-yellow-400 hover:bg-yellow-500 text-white': isFavorite(),
+      'bg-gray-200 hover:bg-gray-300 text-gray-600': !isFavorite()
+    }"
+    class="cursor-pointer absolute top-2 right-2 w-10 h-10 flex items-center justify-center rounded-full shadow-lg z-10 transition-colors duration-300"
+  >
+    <span class="text-xl">⭐</span>
+  </button>
 
-    <button
-      (click)="toggleFavorite()"
-      class="cursor-pointer mt-3 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white font-semibold rounded-lg shadow transition duration-300"
-    >
-      ⭐ {{ isFavorite() ? "Favorito" : "Add to favorites" }}
-    </button>
-  </div>
+  <a [routerLink]="`/pokemon/${pokemon().name}`" class="block">
+    <img
+      class="w-full h-48 object-contain bg-gray-100 p-4"
+      [src]="pokemon().imgUrl"
+      [alt]="pokemon().name"
+    />
+    <div class="p-4 text-center">
+      <h2 class="text-xl font-bold text-gray-800">{{ pokemon().name }}</h2>
+    </div>
+  </a>
 </div>

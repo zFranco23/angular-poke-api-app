@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Pokemon, PokemonDto } from '../models/pokemon.model';
-import { mapPokemonToModel } from '../mappers/user.mapper';
 import {
-  getPokemonsFromStorage,
-  savePokemonsToStorage,
-} from '../utils/storage';
+  Pokemon,
+  PokemonDetail,
+  PokemonDetailDto,
+  PokemonDto,
+} from '../models/pokemon.model';
+
+import { mapPokemonToModel } from '../mappers/pokemon.mapper';
+import { mapPokemonDetailToModel } from '../mappers/pokemon-detail.mapper';
 
 @Injectable({
   providedIn: 'root',
@@ -20,9 +23,9 @@ export class PokemonService {
       .pipe(map(({ results }) => results.map(mapPokemonToModel)));
   }
 
-  savePokemonToFavorites(pokemon: Pokemon) {
-    const pokemons = getPokemonsFromStorage();
-    pokemons.push(pokemon);
-    savePokemonsToStorage(pokemons);
-  }
+  getPokemonDetail: (name: string) => Observable<PokemonDetail> = (name) => {
+    return this.http
+      .get<PokemonDetailDto>(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      .pipe(map(mapPokemonDetailToModel));
+  };
 }
