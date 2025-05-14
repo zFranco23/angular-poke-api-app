@@ -1,5 +1,5 @@
 {
-  "name": "angular-podedex-app",
+  "name": "angular-pokedex-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
