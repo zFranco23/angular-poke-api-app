@@ -3,11 +3,12 @@ import { ContainerComponent } from '../../../../shared/components/container/cont
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonListComponent } from '../../components/pokemon-list/pokemon-list.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.html',
-  imports: [ContainerComponent, PokemonListComponent],
+  imports: [ContainerComponent, PokemonListComponent, RouterLink],
 })
 export class HomeViewComponent {
   pokemons = signal<Pokemon[]>([]);

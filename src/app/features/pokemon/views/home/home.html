@@ -1,6 +1,10 @@
 <app-container>
   <main>
-    <h1 class="text-3xl font-bold text-blue-400">Pokedex</h1>
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-3xl font-bold text-blue-400">Pokedex</h1>
+
+      <a routerLink="/favorites" class="underline"> Go to Favorites </a>
+    </div>
 
     <div>
       <pokemon-list [pokemons]="pokemons()"></pokemon-list>

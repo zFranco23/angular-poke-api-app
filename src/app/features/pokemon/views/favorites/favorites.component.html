@@ -1,0 +1,12 @@
+<app-container>
+  <main>
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-3xl font-bold text-blue-400">Favorites</h1>
+
+      <a routerLink="/" class="underline"> Go to Home </a>
+    </div>
+
+    <div>
+      <pokemon-list [pokemons]="favorites()"></pokemon-list>
+    </div></main
+></app-container>

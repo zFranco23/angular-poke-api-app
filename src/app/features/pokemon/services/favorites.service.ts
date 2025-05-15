@@ -16,9 +16,17 @@ export class FavoritesService {
     this.favorites.update((favorites) => [...favorites, pokemon]);
   }
 
-  removeFromFavorites(pokemon: Pokemon) {
-    this.favorites.update((favorites) =>
-      favorites.filter((p) => p.id !== pokemon.id)
-    );
+  removeFromFavorites(id: number) {
+    this.favorites.update((favorites) => favorites.filter((p) => p.id !== id));
+  }
+
+  toggleFavorite(pokemon: Pokemon) {
+    const id = pokemon.id;
+    const isInFavorites = this.favorites().find((p) => p.id === id);
+    if (isInFavorites) {
+      this.removeFromFavorites(id);
+    } else {
+      this.addToFavorites(pokemon);
+    }
   }
 }

@@ -5,7 +5,7 @@ import {
 } from '../utils/img-source';
 
 export const mapPokemonToModel = (pokemon: PokemonDto): Pokemon => ({
-  id: getIdFromPokemonUrl(pokemon.url),
+  id: Number(getIdFromPokemonUrl(pokemon.url)),
   name: pokemon.name,
   imgUrl: getImgSourceFromPokemonUrl(pokemon.url),
 });

@@ -2,7 +2,7 @@
   class="relative max-w-xs bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-gray-200"
 >
   <button
-    (click)="toggleFavorite($event)"
+    (click)="favoritesService.toggleFavorite(pokemon())"
     [ngClass]="{
       'bg-yellow-400 hover:bg-yellow-500 text-white': isFavorite(),
       'bg-gray-200 hover:bg-gray-300 text-gray-600': !isFavorite()

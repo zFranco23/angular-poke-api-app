@@ -4,7 +4,7 @@ export interface PokemonDto {
 }
 
 export interface Pokemon {
-  id: string;
+  id: number;
   name: string;
   imgUrl: string;
 }

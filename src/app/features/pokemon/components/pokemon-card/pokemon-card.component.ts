@@ -21,15 +21,4 @@ export class PokemonCardComponent {
       .favorites()
       .find((pokemon) => pokemon.id === this.pokemon().id)
   );
-
-  toggleFavorite(event: Event) {
-    event.preventDefault(); // evita que se siga el enlace
-    event.stopPropagation();
-
-    if (this.isFavorite()) {
-      this.favoritesService.removeFromFavorites(this.pokemon());
-    } else {
-      this.favoritesService.addToFavorites(this.pokemon());
-    }
-  }
 }
